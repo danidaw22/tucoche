@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   coches = [
     {
+      id:1,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -26,6 +28,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:2,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -37,6 +40,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:3,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -48,6 +52,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:4,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -59,6 +64,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:5,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -70,6 +76,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:6,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -81,6 +88,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:7,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -92,6 +100,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:8,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -103,6 +112,7 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     },
     {
+      id:9,
       name:"coche1",
       marca:"nissan",
       modelo:"supra",
@@ -114,6 +124,8 @@ export class SearchComponent implements OnInit {
       tipo:"Gasolina"
     }
   ]
+
+  faFav = faHeart
 
   minValue: number = 100;
   maxValue: number = 400;

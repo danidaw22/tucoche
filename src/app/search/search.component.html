@@ -35,33 +35,42 @@
 
         </div>
         <div class="col-12 box-content">
-            <div class="row detail-car" *ngFor="let coche of coches">
-                <div class="col-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
-                </div>
-                <div class="col-9">
-                    <div class="box-price">
-                        <span class="text-tittle">Precio</span><br>
-                        <span class="price">{{coche.price}} €</span>
+            <div class="box-car" *ngFor="let coche of coches">
+                <a class="link-car" [routerLink]="['/detail/'+ coche.id]">
+                    <div class="row detail-car p-3">
+                        <div class="col-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
+                        </div>
+                        <div class="col-9">
+                            <div class="box-price">
+                                <div class="float-end favoritos">
+                                    <fa-icon [icon]="faFav"></fa-icon>
+                                </div>
+                                <span class="text-tittle">Precio</span><br>
+                                <span class="price">{{coche.price}} €</span>
+
+                            </div>
+                            <h2>{{coche.name}}</h2>
+                            <div class="box-details">
+                                <ul class="nav justify-content-left">
+                                    <li class="nav-item">
+                                        <p class="details">{{coche.localidad}}</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="details">{{coche.tipo}}</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="details">{{coche.year}}</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="details">{{coche.km}} km</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <h2>{{coche.name}}</h2>
-                    <div class="box-details">
-                        <ul class="nav justify-content-left">
-                            <li class="nav-item">
-                                <p class="details">{{coche.localidad}} |</p>
-                            </li>
-                            <li class="nav-item">
-                                <p class="details"> {{coche.tipo}} |</p>
-                            </li>
-                            <li class="nav-item">
-                                <p class="details"> {{coche.year}} |</p>
-                            </li>
-                            <li class="nav-item">
-                                <p class="details"> {{coche.km}} km</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                </a>
             </div>
+
         </div>
     </div>
 </div>

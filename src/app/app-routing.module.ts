@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { DetailComponent } from './detail/detail.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './NotFound/NotFound.component'
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: "", component: HomeComponent, pathMatch: "full"},
   { path: "404", component: NotFoundComponent },
   { path: "search", component: SearchComponent },
+  { path:"detail/:id", component: DetailComponent},
   { path: "**", redirectTo: "/404" },
 ];
 

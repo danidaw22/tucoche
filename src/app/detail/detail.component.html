@@ -1,3 +1,23 @@
-<p>
-  detail works!
-</p>
+<div class="container box-detail" *ngFor="let c of coche">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-6 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
+        </div>
+        <div class="col-6 box-details">
+            <h2>{{c.name}}</h2>
+            <p class="text-t">Marca</p>
+            <p class="text-d">{{c.marca}}</p>
+            <p class="text-t">Modelo</p>
+            <p class="text-d">{{c.modelo}}</p>
+            <p class="text-t">Tipo</p>
+            <p class="text-d">{{c.tipo}}</p>
+            <p class="text-t">Kilometraje</p>
+            <p class="text-d">{{c.km}}</p>
+            <p class="text-t">Año</p>
+            <p class="text-d">{{c.year}}</p>
+            <p class="text-t">Precio</p>
+            <p class="text-d">{{c.price}}</p>
+            <p class="text-t">Localidad</p>
+            <p class="text-d">{{c.localidad}}</p>
+        </div>
+    </div>
+</div>

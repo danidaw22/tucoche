@@ -1,20 +1,3 @@
-.img-car {
-    width: 200px;
-    height: 200px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative;
-    background-size: cover
-}
-
-span.price {
-    color: #0e00e6;
-    font-family: Montserrat, Open Sans, Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.36;
-}
-
 .ngx-slider .ngx-slider-bubble {
     cursor: default !important;
     bottom: 23px !important;
@@ -24,6 +7,7 @@ span.price {
 }
 
 .details {
+    border-left: 1px solid #bfbfbf;
     color: #888;
     display: inline-block;
     font-size: 12px;
@@ -37,7 +21,41 @@ span.price {
     padding: 10px;
 }
 
-.row.detail-car {
-    padding-top: 20px;
-    padding-left: 20px;
+.favoritos {
+    font-size: 28px;
+    &:hover {
+        color: red;
+    }
+}
+
+.link-car {
+    text-decoration: none;
+    color: #000;
+    .detail-car {
+        background-color: white;
+        margin: 10px;
+        border-radius: 10px;
+        &:hover {
+            box-shadow: 0 0 20px 5px #d5d5d5;
+        }
+        .img-car {
+            width: 200px;
+            height: 200px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+            background-size: cover
+        }
+        span.price {
+            color: #0e00e6;
+            font-family: Montserrat, Open Sans, Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.36;
+            cursor: default;
+            &:hover {
+                color: rgb(44, 233, 44);
+            }
+        }
+    }
 }
