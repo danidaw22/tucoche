@@ -1,0 +1,43 @@
+.img-car {
+    width: 200px;
+    height: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover
+}
+
+span.price {
+    color: #0e00e6;
+    font-family: Montserrat, Open Sans, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.36;
+}
+
+.ngx-slider .ngx-slider-bubble {
+    cursor: default !important;
+    bottom: 23px !important;
+    padding: 2px 3px !important;
+    color: #55637d !important;
+    font-size: 12px !important;
+}
+
+.details {
+    color: #888;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.box-content {
+    background: #eaeaea;
+    padding: 10px;
+}
+
+.row.detail-car {
+    padding-top: 20px;
+    padding-left: 20px;
+}

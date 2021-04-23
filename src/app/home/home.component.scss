@@ -1,0 +1,65 @@
+@import '../../styles.scss';
+.HomeCategorias-first {
+    background-image: url('../../assets/images/portada1.jpg');
+    height: 200px;
+}
+
+.HomeCategorias-second {
+    background-image: url('../../assets/images/portada2.jpg');
+    height: 200px;
+}
+
+.HomeCategorias-third {
+    background-image: url('../../assets/images/portada3.jpg');
+    height: 200px;
+}
+
+.HomeCategorias-fourth {
+    background-image: url('../../assets/images/portada4.jpg');
+    height: 200px;
+}
+
+.HomeCategorias {
+    color: white;
+    display: flow-root;
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    .img-categoria {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        transition: all .3s ease;
+        position: relative;
+        border-radius: 10px;
+        &:hover {
+            box-shadow: 0px 2px 18px rgba(73, 73, 98, 0.4);
+            margin-top: -5px;
+        }
+        h2 {
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 8px;
+            padding-top: 108px;
+            padding-left: 20px;
+            text-align: left;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+    }
+}
+
+.btn-coche {
+    background-color: rgb(12, 152, 245);
+    color: white!important;
+    border: 1px solid white;
+}
+
+.box-home-search {
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    height: 72px;
+    margin-bottom: 10px;
+}
+
+.buscador-home {
+    padding-top: 17px;
+}

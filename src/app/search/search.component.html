@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 box-search">
+
+            <form>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingClave" placeholder="Palabra Clave">
+                            <label for="floatingClave">Palabra Clave</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <select class="form-select" aria-label="Default select example">
+                      <option selected>Marca</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <select class="form-select" aria-label="Default select example">
+                      <option selected>Modelo</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="col-12 box-content">
+            <div class="row detail-car" *ngFor="let coche of coches">
+                <div class="col-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
+                </div>
+                <div class="col-9">
+                    <div class="box-price">
+                        <span class="text-tittle">Precio</span><br>
+                        <span class="price">{{coche.price}} €</span>
+                    </div>
+                    <h2>{{coche.name}}</h2>
+                    <div class="box-details">
+                        <ul class="nav justify-content-left">
+                            <li class="nav-item">
+                                <p class="details">{{coche.localidad}} |</p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="details"> {{coche.tipo}} |</p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="details"> {{coche.year}} |</p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="details"> {{coche.km}} km</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

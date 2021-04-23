@@ -1,0 +1,39 @@
+@import '../../styles.scss';
+.box-header img {
+    width: 50%;
+}
+
+.btn-coche {
+    background-color: $azul;
+    color: white!important;
+    &:hover {
+        border: 2px solid $azul;
+        color: $azul !important;
+        background: white;
+    }
+}
+
+.nav-item a {
+    color: black;
+    font-weight: 400;
+    &:hover {
+        color: $azul;
+        font-weight: bold;
+    }
+}
+
+.header-top {
+    background-color: $azul;
+    .nav-link {
+        color: white;
+        font-size: 17px;
+        &:hover {
+            color: black;
+            cursor: pointer;
+        }
+    }
+}
+
+.box-header {
+    margin-bottom: -28px;
+}

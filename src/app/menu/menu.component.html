@@ -1,0 +1,38 @@
+<div class="container-header">
+    <div class="box-header">
+        <div class="header-top">
+            <div class="container">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <fa-icon [icon]='facebook'></fa-icon>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <fa-icon [icon]='twitter'></fa-icon>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <fa-icon [icon]='instagram'></fa-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="assets/images/logo.png" />
+                </a>
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item"><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link active" aria-current="page">Inicio</a></li>
+                    <li class="nav-item"><a [routerLink]="['/search']" routerLinkActive="active" class="nav-link">Búsqueda</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-coche">Anuncia tu coche</a></li>
+                </ul>
+            </header>
+        </div>
+    </div>
+</div>
