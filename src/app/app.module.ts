@@ -11,16 +11,18 @@ import { SearchComponent } from './search/search.component';
 import { NotFoundComponent } from './NotFound/NotFound.component';
 import { DetailComponent } from './detail/detail.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       HomeComponent,
       FooterComponent,
       MenuComponent,
       SearchComponent,
       NotFoundComponent,
-      DetailComponent
+      DetailComponent,
+      DashboardComponent
    ],
   imports: [
     BrowserModule,

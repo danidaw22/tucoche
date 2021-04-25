@@ -1,0 +1,23 @@
+@import '../../styles.scss';
+.menu-panel {
+    background-color: $azul;
+    height: 100vh;
+}
+
+.panel li {
+    list-style: none;
+    margin-top: 20px;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    ;
+}
+
+.logout {
+    list-style: none;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
