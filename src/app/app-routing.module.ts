@@ -1,3 +1,6 @@
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailComponent } from './detail/detail.component';
 import { NgModule, Component } from '@angular/core';
@@ -13,8 +16,11 @@ const routes: Routes = [
   { path: "search", component: SearchComponent },
   { path:"detail/:id", component: DetailComponent},
   { path:"panel", component: DashboardComponent, children:[
-    {path:"all", component: DetailAllComponent}
+    {path:"all", component: DetailAllComponent},
+    {path:"perfil/:id", component:ProfileComponent}
   ]},
+  { path:"login", component: LoginComponent},
+  { path:"register", component: RegisterComponent},
   { path: "**", redirectTo: "/404" },
 ];
 

@@ -1,10 +1,15 @@
 @import '../../styles.scss';
 .menu-panel {
     background-color: $azul;
-    height: 100vh;
+    height: 30vh;
+    border-radius: 15px;
 }
 
 .panel li {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    font-size: 20px;
     list-style: none;
     margin-top: 20px;
     a {
@@ -14,8 +19,18 @@
     ;
 }
 
+nav {
+    padding-right: 30px
+}
+
 .logout {
-    list-style: none;
+    li {
+        list-style: none;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #fff;
+        font-size: 20px;
+    }
     a {
         text-decoration: none;
         color: white;

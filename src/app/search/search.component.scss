@@ -16,15 +16,10 @@
     cursor: pointer;
 }
 
-.box-content {
-    background: #eaeaea;
-    padding: 10px;
-}
-
 .favoritos {
     font-size: 28px;
     &:hover {
-        color: red;
+        color: #004aad;
     }
 }
 
@@ -33,10 +28,8 @@
     color: #000;
     .detail-car {
         background-color: white;
-        margin: 10px;
         border-radius: 10px;
         &:hover {
-            //box-shadow: 0 0 20px 5px #d5d5d5;
             box-shadow: 0 0 20px 5px #0084ff47;
         }
         .img-car {
@@ -59,4 +52,12 @@
             }
         }
     }
+}
+
+.box-car {
+    margin-bottom: 15px;
+}
+
+.search-colum {
+    margin-bottom: 20px;
 }

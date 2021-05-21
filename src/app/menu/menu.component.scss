@@ -1,25 +1,27 @@
 @import '../../styles.scss';
-.box-header img {
-    width: 50%;
-}
-
 .btn-coche {
-    background-color: $azul;
-    color: white!important;
+    background-color: #004aad;
+    color: #fff!important;
     &:hover {
-        border: 2px solid $azul;
-        color: $azul !important;
-        background: white;
+        border: 1px solid #004aad;
+        color: #004aad!important;
+        background: #fff;
     }
 }
 
 .nav-item a {
-    color: black;
-    font-weight: 400;
+    color: #004aad;
+    font-weight: 600;
     &:hover {
-        color: $azul;
+        color: #2978df;
         font-weight: bold;
+        border-bottom: 2px solid #004aad;
     }
+}
+
+.active {
+    border-bottom: 2px solid #004aad;
+    border-width: 30%;
 }
 
 .header-top {
@@ -34,6 +36,6 @@
     }
 }
 
-.box-header {
-    margin-bottom: -28px;
+.container-header {
+    background: #fff;
 }

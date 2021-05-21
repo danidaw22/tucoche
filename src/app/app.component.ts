@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private router:Router){
     this.router.events.subscribe( route => {
       if( route instanceof NavigationEnd){
-        if(route.url.includes("login") || route.url.includes("register") || route.url.includes("panel")){
+        if(route.url.includes("login") || route.url.includes("register")  || route.url.includes('404')){
           this.hideMenu = true
         }
       }

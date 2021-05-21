@@ -1,48 +1,42 @@
-<div class="box-panel">
+<div class="container">
     <div class="row">
-        <div class="menu-panel col-2">
-            <div class="area"></div>
+        <div class="col-3 menu-panel">
             <nav class="main-menu">
                 <ul class="panel">
-                    <li>
-                        <a href="http://justinfarrow.com">
-                            <img src="../../assets/images/logo-panel.png" style="width: 100%;">
+                    <li class="has-subnav ">
+                        <a [routerLink]="[ '/panel/all'] ">
+                            <fa-icon [icon]="faCar "></fa-icon>
+                            <span class="nav-text ">
+                    Mis anuncios
+                </span>
                         </a>
 
                     </li>
                     <li class="has-subnav">
-                        <a href="#">
-                            <fa-icon [icon]="faPerfil"></fa-icon>
-                            <span class="nav-text">
-                            Mi perfil
-                        </span>
+                        <a [routerLink]="['/panel/perfil/3252']">
+                            <fa-icon [icon]=" faPerfil "></fa-icon>
+                            <span class="nav-text ">
+                        Mi perfil
+                    </span>
                         </a>
 
                     </li>
-                    <li class="has-subnav">
-                        <a [routerLink]="['/panel/all']">
-                            <fa-icon [icon]="faCar"></fa-icon>
-                            <span class="nav-text">
-                            Mis anuncios
-                        </span>
-                        </a>
 
-                    </li>
                 </ul>
 
-                <ul class="logout">
+                <ul class="logout ">
                     <li>
-                        <a href="#">
-                            <fa-icon [icon]="faLogout"></fa-icon>
-                            <span class="nav-text">
-                            Logout
-                        </span>
+                        <a href="# ">
+                            <fa-icon [icon]="faLogout "></fa-icon>
+                            <span class="nav-text ">
+                        Logout
+                    </span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-        <div class="menu-content col-10">
+        <div class="col-9">
             <router-outlet></router-outlet>
         </div>
     </div>

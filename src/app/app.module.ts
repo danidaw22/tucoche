@@ -1,3 +1,5 @@
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { DetailAllComponent } from './dashboard/detail-all/detail-all.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,9 +14,11 @@ import { NotFoundComponent } from './NotFound/NotFound.component';
 import { DetailComponent } from './detail/detail.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       HomeComponent,
       FooterComponent,
@@ -22,7 +26,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       SearchComponent,
       NotFoundComponent,
       DetailComponent,
-      DashboardComponent
+      DashboardComponent,
+      LoginComponent,
+      RegisterComponent,
+      DetailAllComponent,
+      ProfileComponent
    ],
   imports: [
     BrowserModule,
