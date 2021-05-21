@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-3 box-search">
+        <div class="col-12 col-sm-3 col-lg-3 box-search">
             <p>Tu busqueda</p>
             <form>
                 <div class="row">
@@ -150,7 +150,7 @@
             </form>
 
         </div>
-        <div class="col-9 box-content">
+        <div class="col-12 col-sm-9 col-lg-9 box-content">
             <div class="box-car" *ngFor="let coche of coches">
                 <a class="link-car" [routerLink]="['/detail/'+ coche.id]">
                     <div class="row detail-car p-3">

@@ -12,11 +12,19 @@ export class AppComponent {
   hideMenu = false;
 
   constructor(private router:Router){
-    this.router.events.subscribe( route => {
-      if( route instanceof NavigationEnd){
-        if(route.url.includes("login") || route.url.includes("register")  || route.url.includes('404')){
+
+    this.router.events.subscribe( result => {
+      if(result instanceof NavigationEnd){
+
+        let str = result.url
+        let panel = str.split('/')
+        console.log(panel[1])
+        if(panel[1] == 'login' || panel[1] == 'register' || panel[1] ==  '404'){
           this.hideMenu = true
+        } else {
+          this.hideMenu = false
         }
+
       }
     })
   }
