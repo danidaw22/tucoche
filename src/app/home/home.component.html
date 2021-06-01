@@ -7,7 +7,7 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-coche" type="button" (click)="navigateToSearch(this.filter.value)"><fa-icon [icon]='car'></fa-icon></button>
                     </div>
-                    <input type="text" class="form-control seach-home" placeholder="Busca tu coche" #filter>
+                    <input type="text" (keydown.enter)="navigateToSearch(this.filter.value)" class="form-control seach-home" placeholder="Busca tu coche" #filter>
                 </div>
             </div>
         </div>
