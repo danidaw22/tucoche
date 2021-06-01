@@ -217,4 +217,8 @@ export class SearchComponent implements OnInit {
 
   }
 
+  addFav(){
+    console.log('entra');
+  }
+
 }

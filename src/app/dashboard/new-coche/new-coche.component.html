@@ -58,6 +58,7 @@
             <label for="formFile" class="form-label">Imagen </label>
             <input class="form-control" type="file" id="formFile" #userPhoto (change)="onFileSelected($event)">
         </div>
-        <button type="submit" class="btn btn-success float-end btn-table">Añadir Anuncio</button>
+        <button *ngIf="!editCoche" type="submit" class="btn btn-success float-end btn-table">Añadir Anuncio</button>
+        <button *ngIf="editCoche" type="submit" class="btn btn-success float-end btn-table">Editar Anuncio</button>
     </form>
 </div>

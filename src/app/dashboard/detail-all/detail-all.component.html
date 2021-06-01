@@ -11,7 +11,7 @@
         <tbody>
             <ng-container *ngFor="let coche of coches; let i = index">
                 <tr>
-                    <th scope="row">{{i+1}}</th>
+                    <td scope="row">{{i+1}}</td>
                     <td>
                         <img *ngIf="coche.photo" class="img-tabla" src="{{coche.photo}}" atl="portada-anuncio">
                         <img *ngIf="!coche.photo" class="img-tabla" src="../../../assets/images/notphoto2.png" atl="portada-anuncio">
