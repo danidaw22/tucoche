@@ -57,17 +57,20 @@
 .box-home-search {
     background: rgb(0, 74, 173);
     background: radial-gradient(circle, rgba(0, 74, 173, 1) 0%, rgba(0, 85, 173, 1) 0%, rgba(0, 74, 173, 1) 100%);
-    height: 72px;
+    height: 130px;
     margin-bottom: 10px;
 }
 
 .buscador-home {
-    padding-top: 17px;
+    padding-top: 43px;
 }
 
 .ventajas {
+    margin-top: 50px;
     h2 {
         text-align: center;
+        font-size: 45px;
+        font-weight: bold;
         color: rgba(0, 0, 0, 0.842);
     }
     .icono {
@@ -78,8 +81,10 @@
 }
 
 .vendetucoche {
-    margin-top: 30px;
+    margin-top: 50px;
     h2 {
+        font-size: 45px;
+        font-weight: bold;
         text-align: center;
         color: rgba(0, 0, 0, 0.842);
     }
@@ -101,6 +106,7 @@
         width: 100%;
         font-weight: bold;
         color: $azul;
+        padding: 15px;
         &:hover {
             background-color: $azul;
             color: #ffff;
@@ -109,6 +115,7 @@
 }
 
 .informacion {
+    margin-top: 50px;
     .visita {
         text-align: center;
         height: 200px;

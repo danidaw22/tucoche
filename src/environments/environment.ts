@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  //apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://loscar-backend.herokuapp.com',
   firebaseConfig: {
     apiKey: "AIzaSyAcpWAvkgiRPYZ9qeR59ndE2YX4aamH9yw",
     authDomain: "loscar-c5fd3.firebaseapp.com",

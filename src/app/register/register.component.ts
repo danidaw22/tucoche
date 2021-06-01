@@ -36,16 +36,6 @@ export class RegisterComponent implements OnInit {
       return
     }
 
-    /*const datos = {
-      email:this.sForm.get('email')?.value,
-      password:this.sForm.get('passsword')?.value,
-      nombre:this.sForm.get('nombre')?.value,
-      apellidos:this.sForm.get('apellidos')?.value,
-      localidad:this.sForm.get('localidad')?.value,
-      telefono:this.sForm.get('telefono')?.value,
-      rol:"user",
-    }*/
-
     const email=this.sForm.get('email')?.value;
     const password=this.sForm.get('password')?.value;
     const nombre=this.sForm.get('nombre')?.value;
