@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faCarAlt, faPersonBooth, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
+import { faCarAlt, faPersonBooth, faPlusCircle, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { faCarAlt, faPersonBooth, faPowerOff } from '@fortawesome/free-solid-svg
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private activeRouter:ActivatedRoute) { }
 
   faLogout = faPowerOff;
 
@@ -16,7 +17,23 @@ export class DashboardComponent implements OnInit {
 
   faCar = faCarAlt;
 
+  faAnuncio = faPlusCircle
+
   ngOnInit() {
+
   }
+
+  closeSession(){
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+
+    this.router.navigate(['/'])
+
+  }
+
+
+
+
 
 }

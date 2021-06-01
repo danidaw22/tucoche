@@ -1,23 +1,79 @@
 <div class="container box-detail" *ngFor="let c of coche">
     <div class="row">
-        <div class="col-12 col-sm-6 col-lg-6 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
+        <div *ngIf="c.photo" class="col-12 col-sm-9 col-lg-9 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
         </div>
-        <div class="col-6 box-details">
-            <h2>{{c.name}}</h2>
-            <p class="text-t">Marca</p>
-            <p class="text-d">{{c.marca}}</p>
-            <p class="text-t">Modelo</p>
-            <p class="text-d">{{c.modelo}}</p>
-            <p class="text-t">Tipo</p>
-            <p class="text-d">{{c.tipo}}</p>
-            <p class="text-t">Kilometraje</p>
-            <p class="text-d">{{c.km}}</p>
-            <p class="text-t">Año</p>
-            <p class="text-d">{{c.year}}</p>
-            <p class="text-t">Precio</p>
-            <p class="text-d">{{c.price}}</p>
-            <p class="text-t">Localidad</p>
-            <p class="text-d">{{c.localidad}}</p>
+        <div *ngIf="!c.photo" class="col-12 col-sm-9 col-lg-9 img-car" style="background-image: url('../../assets/images/notphoto.png');">
+        </div>
+        <div class="col-3 contacto">
+            <h2>Contacta con el vendedor</h2>
+            <form id="contacto" [formGroup]="sForm" (ngSubmit)="contacto()">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre">
+                    <label for="user-name">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email">
+                    <label for="user-email">Tu email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-phone" placeholder="Telefono" formControlName="telefono">
+                    <label for="user-name">Tu telefono</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Estoy interesado/a en este vehiculo" id="comentarios" style="height: 100px; margin-bottom: 15px;" formControlName="description"></textarea>
+                    <label for="comentarios">Comentario</label>
+                </div>
+                <button type="submit" class="btn btn-contacto"><fa-icon [icon]='faContacto'></fa-icon>Contactar</button>
+            </form>
+        </div>
+        <div class="col-12 box-details mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <h2>{{c.titulo}}</h2>
+                </div>
+                <div class="row ficha">
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Marca</p>
+                        <p *ngIf="c.marca" class="text-d">{{c.marca}}</p>
+                        <p *ngIf="!c.marca" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Modelo</p>
+                        <p *ngIf="c.modelo" class="text-d">{{c.modelo}}</p>
+                        <p *ngIf="!c.modelo" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Tipo de marchas</p>
+                        <p *ngIf="c.cambio" class="text-d">{{c.cambio}}</p>
+                        <p *ngIf="!c.cambio" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">km</p>
+                        <p *ngIf="c.km" class="text-d">{{c.km}}</p>
+                        <p *ngIf="!c.km" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Año</p>
+                        <p *ngIf="c.anno" class="text-d">{{c.anno}}</p>
+                        <p *ngIf="!c.anno" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Precio</p>
+                        <p *ngIf="c.precio" class="text-d">{{c.precio}} €</p>
+                        <p *ngIf="!c.precio" class="text-d">---</p>
+                    </div>
+                    <div class="col-4 datos-coche">
+                        <p class="text-t">Localidad</p>
+                        <p *ngIf="c.localizacion" class="text-d">{{c.localizacion}}</p>
+                        <p *ngIf="!c.localizacion" class="text-d">---</p>
+                    </div>
+                    <div class="col-12 datos-coche">
+                        <p class="text-t">Descripcion</p>
+                        <p *ngIf="c.descripcion" class="text-d">{{c.descripcion}}</p>
+                        <p *ngIf="!c.descripcion" class="text-d">---</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

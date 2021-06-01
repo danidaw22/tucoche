@@ -1,26 +1,26 @@
 <div class="container">
     <h2>Mis datos personales</h2>
-    <form>
+    <form [formGroup]="sForm" (ngSubmit)="updatePerfil()">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="user-name" placeholder="Nombre">
+            <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre">
             <label for="user-name">Nombre</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="user-apellidos" placeholder="Apellidos">
+            <input type="text" class="form-control" id="user-apellidos" placeholder="Apellidos" formControlName="apellidos">
             <label for="user-apellidos">Apellidos</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="user-email" placeholder="Email">
+            <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email">
             <label for="user-email">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="user-telefono" placeholder="Telefono">
+            <input type="text" class="form-control" id="user-telefono" placeholder="Telefono" formControlName="telefono">
             <label for="user-telefono">Telefono</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="user-localidad" placeholder="Localidad">
+            <input type="text" class="form-control" id="user-localidad" placeholder="Localidad" formControlName="localidad">
             <label for="user-localidad">Localidad</label>
         </div>
-        <button type="button" class="btn btn-success float-end btn-table">Guardar cambios</button>
+        <button type="submit" class="btn btn-success float-end btn-table">Guardar cambios</button>
     </form>
 </div>

@@ -12,16 +12,39 @@
             <ng-container *ngFor="let coche of coches; let i = index">
                 <tr>
                     <th scope="row">{{i+1}}</th>
-                    <td><img class="img-tabla" src="{{coche.photo}}" atl="portada-anuncio"></td>
+                    <td>
+                        <img *ngIf="coche.photo" class="img-tabla" src="{{coche.photo}}" atl="portada-anuncio">
+                        <img *ngIf="!coche.photo" class="img-tabla" src="../../../assets/images/notphoto2.png" atl="portada-anuncio">
+                    </td>
                     <td>{{coche.titulo}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-table "><fa-icon [icon]="faShow"></fa-icon></button>
-                        <button type="button" class="btn btn-success btn-table "><fa-icon [icon]="faEdit"></fa-icon></button>
-                        <button type="button" class="btn btn-danger btn-table "><fa-icon [icon]="faDelete"></fa-icon></button>
+                        <a [routerLink]="['/detail/'+ coche._id]"><button type="button" class="btn btn-primary btn-table"><fa-icon [icon]="faShow"></fa-icon></button></a>
+                        <a [routerLink]="['/panel/coche/detail/'+ coche._id]"><button type="button" class="btn btn-success btn-table "><fa-icon [icon]="faEdit"></fa-icon></button></a>
+                        <button type="button" (click)=delete(coche) class="btn btn-danger btn-table " data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="faDelete"></fa-icon></button>
                     </td>
                 </tr>
             </ng-container>
 
         </tbody>
     </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de eliminar esta anuncio?</h5>
+                <button type="button" #closebutton class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Vas a eliminar a {{ cocheToDelete?.titulo }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="deleteCoche(cocheToDelete?._id)">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
 </div>

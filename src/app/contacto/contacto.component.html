@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-12 datos">
+            <p class="titulo">LosCar</p>
+            <p>Telefono: 222-222-222</p>
+            <p>Dirrección: C/Mendizabal Nº 50 Almansa(Albacete)</p>
+            <p>Email: loscar@gmail.com</p>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <img src="../../assets/images/logo-white.png" atl="logo-loscar">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-6 col-12">
+            <h2>Contacta con Nosotros</h2>
+            <form id="contacto" [formGroup]="sForm" (ngSubmit)="contacto()">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre">
+                    <label for="user-name">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email">
+                    <label for="user-email">Tu email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user-phone" placeholder="Telefono" formControlName="telefono">
+                    <label for="user-name">Tu telefono</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Estoy interesado/a en este vehiculo" id="comentarios" style="height: 100px; margin-bottom: 15px;" formControlName="description"></textarea>
+                    <label for="comentarios">Comentario</label>
+                </div>
+                <button type="submit" class="btn btn-contacto">Contactar</button>
+            </form>
+        </div>
+        <div class="col-12">
+        </div>
+    </div>
+</div>

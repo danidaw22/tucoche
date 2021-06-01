@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container box-panel">
     <div class="row">
         <div class="col-3 menu-panel">
             <nav class="main-menu">
@@ -7,17 +7,26 @@
                         <a [routerLink]="[ '/panel/all'] ">
                             <fa-icon [icon]="faCar "></fa-icon>
                             <span class="nav-text ">
-                    Mis anuncios
-                </span>
+                                Mis anuncios
+                            </span>
                         </a>
 
                     </li>
                     <li class="has-subnav">
-                        <a [routerLink]="['/panel/perfil/3252']">
+                        <a [routerLink]="['/panel/coche/detail']">
+                            <fa-icon [icon]=" faAnuncio "></fa-icon>
+                            <span class="nav-text ">
+                              Nuevo anuncio
+                          </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a [routerLink]="['/panel/perfil']">
                             <fa-icon [icon]=" faPerfil "></fa-icon>
                             <span class="nav-text ">
-                        Mi perfil
-                    </span>
+                                Mi perfil
+                            </span>
                         </a>
 
                     </li>
@@ -26,11 +35,11 @@
 
                 <ul class="logout ">
                     <li>
-                        <a href="# ">
+                        <a class="link-logout" (click)="closeSession()">
                             <fa-icon [icon]="faLogout "></fa-icon>
                             <span class="nav-text ">
-                        Logout
-                    </span>
+                                Logout
+                            </span>
                         </a>
                     </li>
                 </ul>

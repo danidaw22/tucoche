@@ -1,50 +1,51 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-sm-3 col-lg-3 box-search">
-            <p>Tu busqueda</p>
-            <form>
+            <form [formGroup]="sForm" (ngSubmit)="search()">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Tu busqueda</p>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 search-colum">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingClave" placeholder="Palabra Clave">
+                            <input type="text" class="form-control" id="floatingClave" placeholder="Palabra Clave" formControlName="filter">
                             <label for="floatingClave">Palabra Clave</label>
                         </div>
                     </div>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
                           Coche, Modelo ...
                         </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="col-12 search-colum">
-                                    <p>Marcas</p>
-                                    <select class="form-select" aria-label="Default select example">
-                                  <option selected>Todas las marcas</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <div class="col-12 search-colum">
+                                        <p>Marcas</p>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="marca" placeholder="Marca" formControlName="marca">
+                                            <label for="marca">Marca</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 search-colum">
+                                        <p>Modelo</p>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="modelo" placeholder="Modelo" formControlName="modelo">
+                                            <label for="modelo">Modelo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 search-colum">
+                                        <p>Provincia</p>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="location" placeholder="Localizacion" formControlName="location">
+                                            <label for="location">Localización</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-12 search-colum">
-                                    <p>Modelo</p>
-                                    <select class="form-select" aria-label="Default select example">
-                                  <option selected>Todos los modelos</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                                </div>
-                                <div class="col-12 search-colum">
-                                    <p>Provincia</p>
-                                    <select class="form-select" aria-label="Default select example">
-                                    <option selected>Todas las provincias</option>
-                                    <option value="1">Albacete</option>
-                                    <option value="2">Sevilla</option>
-                                    <option value="3">Cuenca</option>
-                                </select>
-                                </div>
+
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -58,11 +59,11 @@
                                     <div class="col-12 search-colum">
                                         <p>KM</p>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingkmInicial" placeholder="Km desde">
+                                            <input type="text" class="form-control" id="floatingkmInicial" placeholder="Km desde" formControlName="kmInicial">
                                             <label for="floatingkmInicial">Km desde</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingkmFinal" placeholder="hasta">
+                                            <input type="text" class="form-control" id="floatingkmFinal" placeholder="hasta" formControlName="kmFinal">
                                             <label for="floatingkmFinal">hasta</label>
                                         </div>
                                     </div>
@@ -74,12 +75,12 @@
                                     <div class="col-12 search-colum">
                                         <p>Año</p>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingkmInicial" placeholder="Km desde">
-                                            <label for="floatingkmInicial">Año desde</label>
+                                            <input type="text" class="form-control" id="floatingannoInicial" placeholder="Km desde" formControlName="annoInicial">
+                                            <label for="floatingannoInicial">Año desde</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingkmFinal" placeholder="hasta">
-                                            <label for="floatingkmFinal">hasta</label>
+                                            <input type="text" class="form-control" id="floatingannoFinal" placeholder="hasta" formControlName="annoFinal">
+                                            <label for="floatingannoFinal">hasta</label>
                                         </div>
                                     </div>
                                 </div>
@@ -95,51 +96,45 @@
                                 <div class="accordion-body">
                                     <div class="col-12 search-colum">
                                         <p>Combustible</p>
-                                        <select class="form-select" aria-label="Default select example">
-                                      <option selected>Todos los combustibles</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                  </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="combustible" placeholder="combustible" formControlName="combustible">
+                                            <label for="combustible">Combustible</label>
+                                        </div>
+
                                     </div>
                                     <div class="col-12 search-colum">
                                         <p>Nº de puertas</p>
-                                        <select class="form-select" aria-label="Default select example">
-                                      <option selected>Puertas</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="npuertas" placeholder="npuertas" formControlName="npuertas">
+                                            <label for="npuertas">Nº de puertas</label>
+                                        </div>
                                     </div>
                                     <div class="col-12 search-colum">
                                         <p>Nº de plazas</p>
-                                        <select class="form-select" aria-label="Default select example">
-                                      <option selected>Plazas</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="nplazas" placeholder="nplazas" formControlName="nplazas">
+                                            <label for="nplazas">Nº de plazas</label>
+                                        </div>
                                     </div>
                                     <div class="col-12 search-colum">
                                         <p>Tipo de cambio</p>
-                                        <select class="form-select" aria-label="Default select example">
-                                      <option selected>Todos</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="cambio" placeholder="cambio" formControlName="cambio">
+                                            <label for="cambio">Tipo de cambio</label>
+                                        </div>
                                     </div>
                                     <div class="col-12 search-colum">
                                         <p>Color</p>
-                                        <select class="form-select" aria-label="Default select example">
-                                      <option selected>Todos</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                    </select>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="color" placeholder="color" formControlName="color">
+                                            <label for="npuertas">Color</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-search btn2" type="submit">Buscar</button>
                         </div>
                     </div>
 
@@ -151,40 +146,50 @@
 
         </div>
         <div class="col-12 col-sm-9 col-lg-9 box-content">
-            <div class="box-car" *ngFor="let coche of coches">
-                <a class="link-car" [routerLink]="['/detail/'+ coche.id]">
-                    <div class="row detail-car p-3">
-                        <div class="col-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
-                        </div>
-                        <div class="col-9">
-                            <div class="box-price">
-                                <div class="float-end favoritos">
-                                    <fa-icon [icon]="faFav"></fa-icon>
-                                </div>
-                                <span class="text-tittle">Precio</span><br>
-                                <span class="price">{{coche.price}} €</span>
 
+            <div class="list">
+                <ul>
+                    <li *ngFor="let coche of cochesAll | paginate: { itemsPerPage: 10, currentPage: p}">
+                        <a class="link-car" [routerLink]="['/detail/'+ coche._id]">
+                            <div class="row detail-car p-3">
+                                <div *ngIf="coche.photo" class="col-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
+                                </div>
+                                <div *ngIf="!coche.photo" class="col-3 img-car" style="background-image: url('../../assets/images/notphoto2.png');">
+                                </div>
+                                <div class="col-8">
+                                    <div class="box-price">
+                                        <div class="float-end favoritos">
+                                            <fa-icon [icon]="faFav"></fa-icon>
+                                        </div>
+                                        <span class="text-tittle">Precio</span><br>
+                                        <span class="price">{{coche.precio}} €</span>
+
+                                    </div>
+                                    <h2>{{coche.titulo}}</h2>
+                                    <div class="box-details">
+                                        <ul class="nav justify-content-left">
+                                            <li class="nav-item">
+                                                <p class="details">{{coche.localizacion}}</p>
+                                            </li>
+                                            <li class="nav-item">
+                                                <p class="details">{{coche.cambio}}</p>
+                                            </li>
+                                            <li class="nav-item">
+                                                <p class="details">{{coche.anno}}</p>
+                                            </li>
+                                            <li *ngIf="coche.km" class="nav-item">
+                                                <p class="details">{{coche.km}} km</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <h2>{{coche.name}}</h2>
-                            <div class="box-details">
-                                <ul class="nav justify-content-left">
-                                    <li class="nav-item">
-                                        <p class="details">{{coche.localidad}}</p>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p class="details">{{coche.tipo}}</p>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p class="details">{{coche.year}}</p>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p class="details">{{coche.km}} km</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                        </a>
+                    </li>
+                </ul>
+
+                <pagination-controls (pageChange)="p= $event" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
             </div>
 
         </div>

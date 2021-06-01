@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Coche } from 'src/app/models/coche.models';
+import { CochesService } from 'src/app/services/coches/coches.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-detail-all',
@@ -8,56 +11,7 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class DetailAllComponent implements OnInit {
 
-  coches = [
-    {
-      id:1,
-      titulo:"coche1",
-      marca:"nissan",
-      modelo:"supra",
-      year:"2005",
-      price:"12.500",
-      photo:"https://images.unsplash.com/photo-1592797520856-883837ddd186?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      localidad:"Madrid",
-      km:200,
-      tipo:"Gasolina"
-    },
-    {
-      id:2,
-      titulo:"coche1",
-      marca:"nissan",
-      modelo:"supra",
-      year:"2005",
-      price:"12.500",
-      photo:"https://images.unsplash.com/photo-1592797520856-883837ddd186?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      localidad:"Madrid",
-      km:200,
-      tipo:"Gasolina"
-    },
-    {
-      id:3,
-      titulo:"coche1",
-      marca:"nissan",
-      modelo:"supra",
-      year:"2005",
-      price:"12.500",
-      photo:"https://images.unsplash.com/photo-1592797520856-883837ddd186?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      localidad:"Madrid",
-      km:200,
-      tipo:"Gasolina"
-    },
-    {
-      id:4,
-      name:"coche1",
-      marca:"nissan",
-      modelo:"supra",
-      year:"2005",
-      price:"12.500",
-      photo:"https://images.unsplash.com/photo-1592797520856-883837ddd186?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      localidad:"Madrid",
-      km:200,
-      tipo:"Gasolina"
-    }
-  ]
+  coches:any=[]
 
   faDelete = faTrash
 
@@ -65,10 +19,48 @@ export class DetailAllComponent implements OnInit {
 
   faShow = faEye
 
+  cocheToDelete : Coche | undefined
 
-  constructor() { }
+  @ViewChild('closebutton') closebutton:any;
+
+  private readonly notifier: NotifierService;
+
+
+  constructor(private cochesService : CochesService, notifierService: NotifierService) {
+    this.notifier = notifierService;
+   }
 
   ngOnInit() {
+    this.loadData()
+  }
+
+  loadData(){
+    this.cochesService.panel().subscribe(
+      (data)=>{
+        this.coches = data;
+      },
+      error => {
+        console.log('Error', error)
+      }
+    )
+  }
+
+  delete(coche : Coche){
+    this.cocheToDelete = coche
+  }
+
+  deleteCoche(id: any){
+    this.cochesService.deleteCoche(id).subscribe(
+      data => {
+        this.notifier.notify('success', 'Anuncio eliminado correctamente');
+        this.closebutton.nativeElement.click();
+        this.loadData()
+      },
+      error =>{
+        this.notifier.notify('error', 'No se ha podido eliminar el anuncio, intentelo mas tarde');
+        console.log(error)
+      }
+    )
   }
 
 }

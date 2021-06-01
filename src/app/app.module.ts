@@ -1,3 +1,5 @@
+import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
+import { NewCocheComponent } from './dashboard/new-coche/new-coche.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { DetailAllComponent } from './dashboard/detail-all/detail-all.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +18,20 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NotifierModule } from 'angular-notifier';
+import { AngularFireModule } from '@angular/fire';
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+} from "@angular/fire/storage";
+import { environment } from "../environments/environment";
+import { ContactoComponent } from './contacto/contacto.component';
+
 
 @NgModule({
   declarations: [
@@ -30,15 +46,29 @@ import { RegisterComponent } from './register/register.component';
       LoginComponent,
       RegisterComponent,
       DetailAllComponent,
-      ProfileComponent
+      ProfileComponent,
+      NewCocheComponent,
+      ContactoComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgxSliderModule
+    NgxSliderModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    NotifierModule,
+    AngularFireModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true},
+    { provide:JWT_OPTIONS, useValue:JWT_OPTIONS},
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

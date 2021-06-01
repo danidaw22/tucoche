@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -9,14 +10,28 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeRoute:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-  }
 
+    this.estadoMenu()
+
+    this.router.events.subscribe(eventos => {
+      if(eventos instanceof NavigationEnd){
+        this.estadoMenu()
+      }
+    })
+  }
+  logeado = false
   facebook = faFacebook
   twitter = faTwitter
   instagram = faInstagram
 
-
+  estadoMenu(){
+    if(localStorage.getItem('token') != null){
+      this.logeado=true
+    }else{
+      this.logeado=false
+    }
+  }
 }

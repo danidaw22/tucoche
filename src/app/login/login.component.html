@@ -8,16 +8,16 @@
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-12 col-sm-6 col-lg-6">
-            <form>
+            <form [formGroup]="sForm" (ngSubmit)="login()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-name" placeholder="Nombre">
+                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="email" [ngClass]="{'is-invalid': f.email.errors}">
                     <label for="user-name">Nombre</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="user-pw" placeholder="Contraseña">
+                    <input type="password" class="form-control" id="user-pw" placeholder="Contraseña" formControlName="password" [ngClass]="{'is-invalid': f.password.errors}">
                     <label for="user-pw">Contraseña</label>
                 </div>
-                <button type="button" class="btn btn-login">Login</button>
+                <button type="submit" class="btn btn-login">Login</button>
                 <a class="link mt-2" (click)="register()">No tienes Cuenta</a>
             </form>
         </div>

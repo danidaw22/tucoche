@@ -1,0 +1,24 @@
+@import '../../styles.scss';
+.btn-contacto {
+    background-color: $azul;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    &:hover {
+        border: 1px solid $azul;
+        background: #fff;
+        color: $azul;
+    }
+}
+
+.datos {
+    background: $azul;
+    color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    .titulo {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

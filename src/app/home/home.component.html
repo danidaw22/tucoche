@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <button class="btn btn-coche" type="button"><fa-icon [icon]='car'></fa-icon></button>
+                        <button class="btn btn-coche" type="button" (click)="navigateToSearch(this.filter.value)"><fa-icon [icon]='car'></fa-icon></button>
                     </div>
-                    <input type="text" class="form-control seach-home" placeholder="Busca tu coche">
+                    <input type="text" class="form-control seach-home" placeholder="Busca tu coche" #filter>
                 </div>
             </div>
         </div>
@@ -16,7 +16,73 @@
 </div>
 <div class="container">
     <div class="box-home m-4">
-        <div class="row">
+        <div class="row ventajas justify-content-center">
+            <h2>Ventajas de comprar un coche de segunda Mano</h2>
+            <div class="col-sm-3 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='dolar'></fa-icon>
+                </div>
+                <p>Coches mas Asequibles</p>
+            </div>
+            <div class="col-sm-3 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='coche'></fa-icon>
+                </div>
+                <p>Más variedad de coches</p>
+            </div>
+            <div class="col-sm-3 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='change'></fa-icon>
+                </div>
+                <p>Coches mas Asequibles</p>
+            </div>
+            <div class="col-sm-3 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='financiacion'></fa-icon>
+                </div>
+                <p>Fianziacion más facil</p>
+            </div>
+        </div>
+        <div class="row vendetucoche">
+            <h2>O si lo prefiereres vende tu coche</h2>
+            <h3>En LosCar puedes anunciar gratis tu coche de segunda mano. Es fácil y lo venderás rápido, porque somos especialistas en vehículos de ocasión</h3>
+            <div class="col-sm-4 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='euro'></fa-icon>
+                </div>
+                <p>Totalmente gratuito hasta 3 anuncios</p>
+            </div>
+            <div class="col-sm-4 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='ojo'></fa-icon>
+                </div>
+                <p>Mayor visibilidad</p>
+            </div>
+            <div class="col-sm-4 col-12">
+                <div class="icono">
+                    <fa-icon [icon]='global'></fa-icon>
+                </div>
+                <p>Desde cualquier lugar</p>
+            </div>
+            <div class="col-sm-4 col-12 offset-sm-4">
+                <a [routerLink]="['/panel/coche/detail']">
+                    <button type="button" class="btn btn-anunciate">Anuncia tu coche</button>
+                </a>
+            </div>
+        </div>
+        <div class="row informacion mt-5">
+            <div class="col-sm-6 col-12 visita">
+                <h4>Visita nuestra tienda física</h4>
+                <p>Donde nos encontramos</p>
+                <a [routerLink]="['/contacto']"><button type="button" class="btn btn-visita">Visitanos</button></a>
+            </div>
+            <div class="col-sm-6 col-12 contacto">
+                <h4>¿Te han quedado dudas?</h4>
+                <p>No dudes en ponerte en contacto con nosotros para cualquier duda</p>
+                <a [routerLink]="['/contacto']"><button type="button" class="btn btn-contacto">Contactanos</button></a>
+            </div>
+        </div>
+        <!--<div class="row">
             <div class="HomeCategorias col-6">
                 <div class="HomeCategorias-first img-categoria">
                     <h2>Coches de <br>SEGUNDA MANO</h2>
@@ -37,6 +103,6 @@
                     <h2>Vehículos<br>INDUSTRIALES</h2>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>

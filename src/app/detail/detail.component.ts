@@ -1,4 +1,9 @@
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { CochesService } from './../services/coches/coches.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Coche } from '../models/coche.models';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-detail',
@@ -7,24 +12,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private active : ActivatedRoute, private cochesService: CochesService, private fb: FormBuilder) {
+    this.sForm = this.fb.group({
+      email:['', Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],
+      nombre:[],
+      description:[],
+      telefono:[]
+    })
+   }
 
-  coche = [
-    {
-      id:1,
-      name:"coche1",
-      marca:"nissan",
-      modelo:"supra",
-      year:"2005",
-      price:"12.500",
-      photo:"https://images.unsplash.com/photo-1592797520856-883837ddd186?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      localidad:"Madrid",
-      km:200,
-      tipo:"Gasolina"
-    }
-  ]
+  coche:any= []
+
+  faContacto = faPhoneAlt
+
+  id=""
+
+  sForm: FormGroup
+
   ngOnInit() {
+
+    this.active.params.subscribe( params => {
+      if(params.id){
+        this.id=params.id
+        this.loadData(this.id)
+      }
+    })
   }
 
+  get f(): any{
+    return this.sForm.controls
+  }
+
+
+  loadData(id:string){
+    this.cochesService.getcoche(id).subscribe(
+      (data) => {
+        console.log(data)
+        this.coche.push(data)
+      },
+      error => {
+        console.log('Error', error)
+      }
+    )
+  }
+
+  contacto(){
+
+  }
 }

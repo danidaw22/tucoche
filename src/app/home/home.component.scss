@@ -64,3 +64,81 @@
 .buscador-home {
     padding-top: 17px;
 }
+
+.ventajas {
+    h2 {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.842);
+    }
+    .icono {
+        font-size: 100px;
+        color: $azul;
+        margin-left: 15%;
+    }
+}
+
+.vendetucoche {
+    margin-top: 30px;
+    h2 {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.842);
+    }
+    h3 {
+        font-size: 16px;
+        color: #000000b3
+    }
+    .icono {
+        font-size: 100px;
+        color: $azul;
+        margin-left: 34%;
+    }
+    p {
+        text-align: center;
+    }
+    .btn-anunciate {
+        border: 1px solid $azul;
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        color: $azul;
+        &:hover {
+            background-color: $azul;
+            color: #ffff;
+        }
+    }
+}
+
+.informacion {
+    .visita {
+        text-align: center;
+        height: 200px;
+        margin-top: 10px;
+        padding: 34px;
+        button {
+            border: 1px solid $azul;
+            background: $azul;
+            color: #fff;
+            &:hover {
+                background: #ffff;
+                color: $azul;
+            }
+        }
+    }
+    .contacto {
+        border-radius: 5px;
+        padding: 34px;
+        text-align: center;
+        background-color: $azul;
+        color: white;
+        height: 200px;
+        button {
+            border: 1px solid #fff;
+            background: #fff;
+            color: $azul;
+            &:hover {
+                background: $azul;
+                color: #fff;
+            }
+        }
+    }
+}

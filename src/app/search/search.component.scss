@@ -1,3 +1,4 @@
+@import '../../styles.scss';
 .ngx-slider .ngx-slider-bubble {
     cursor: default !important;
     bottom: 23px !important;
@@ -19,7 +20,7 @@
 .favoritos {
     font-size: 28px;
     &:hover {
-        color: #004aad;
+        color: $azul;
     }
 }
 
@@ -41,7 +42,7 @@
             background-size: cover
         }
         span.price {
-            color: #0e00e6;
+            color: $azul;
             font-family: Montserrat, Open Sans, Helvetica, Arial, sans-serif;
             font-size: 24px;
             font-weight: 700;
@@ -54,10 +55,26 @@
     }
 }
 
-.box-car {
-    margin-bottom: 15px;
-}
-
 .search-colum {
     margin-bottom: 20px;
+}
+
+.box-content {
+    li {
+        list-style: none;
+        margin-bottom: 15px;
+    }
+}
+
+.btn-search {
+    color: #fff;
+    background-color: $azul;
+    float: right;
+}
+
+.btn2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 13px;
 }
