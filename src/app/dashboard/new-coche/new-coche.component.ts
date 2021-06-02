@@ -25,21 +25,22 @@ export class NewCocheComponent implements OnInit {
   downloadURL: Observable<string> | undefined;
   fb2: any;
   urlPhoto="";
+  isSend=false;
 
   constructor(private fb: FormBuilder, private cocheService:CochesService,private router:Router, private active:ActivatedRoute,notifierService: NotifierService,private storage:AngularFireStorage) {
     this.sForm = this.fb.group({
-      titulo:[],
-      descripcion:[],
+      titulo:['',Validators.required,Validators.minLength(2)],
+      descripcion:['',Validators.required,Validators.minLength(10)],
       precio:[],
-      marca:[],
-      modelo:[],
+      marca:['',Validators.required,Validators.minLength(2)],
+      modelo:['',Validators.required,Validators.minLength(2)],
       km:[],
-      localidad:[],
-      combustible:[],
+      localidad:['',Validators.minLength(2)],
+      combustible:['',Validators.minLength(2)],
       color:[],
       npuertas:[],
       nplazas:[],
-      cambio:[],
+      cambio:['',Validators.minLength(2)],
       anno:[]
     })
 
@@ -64,6 +65,8 @@ export class NewCocheComponent implements OnInit {
   }
 
   saveCar(){
+
+    this.isSend = true
 
     if(this.sForm.invalid){
       console.log("error, el formulario esta mal")
@@ -94,7 +97,9 @@ export class NewCocheComponent implements OnInit {
       } else {
         this.cocheService.updateCoche(this.id,carData).subscribe(
           data => {
+            this.router.navigate(['/panel/all'])
             this.notifier.notify('success', 'Coche actualizado correctamente');
+
           },
           error => {
             this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
@@ -179,6 +184,7 @@ export class NewCocheComponent implements OnInit {
             if(this.editCoche){
               this.cocheService.updateCoche(this.id,carData).subscribe(
                 data => {
+                  this.router.navigate(['/panel/all'])
                   this.notifier.notify('success', 'Coche actualizado correctamente');
                 },
                 error => {

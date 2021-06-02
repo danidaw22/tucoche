@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class UsuariosService {
     return this.httpCLient.post(`${environment.apiUrl}/login`, params)
       .pipe(
         catchError(error => {
-          return error;
+          return throwError(error);
         })
       )
 

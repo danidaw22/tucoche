@@ -12,13 +12,15 @@ export class RegisterComponent implements OnInit {
 
   sForm: FormGroup
 
+  isSend=false;
+
   constructor(private router: Router,private fb: FormBuilder, private userService:UsuariosService) {
     this.sForm = this.fb.group({
       nombre:['',Validators.required, Validators.minLength(2)],
       apellidos:['',Validators.required, Validators.minLength(2)],
       localidad:['', Validators.minLength(2)],
       telefono:['',Validators.minLength(9)],
-      email:['',Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],
+      email:['',Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],
       password:['',Validators.required, Validators.minLength(9)]
     })
   }
@@ -31,6 +33,9 @@ export class RegisterComponent implements OnInit {
   }
 
   saveUsuario(){
+
+    this.isSend=true;
+
     if(this.sForm.invalid){
       console.log("error, el formulario esta mal")
       return

@@ -59,7 +59,19 @@ import { ContactoComponent } from './contacto/contacto.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    NotifierModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'left',
+          distance: 12,
+        },
+        vertical: {
+          position: 'top',
+          distance: 12,
+          gap: 10,
+        },
+      }
+    }),
     AngularFireModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")

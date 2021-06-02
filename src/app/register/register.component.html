@@ -10,28 +10,46 @@
         <div class="col-12 col-sm-6 col-lg-6">
             <form [formGroup]="sForm" (ngSubmit)="saveUsuario()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre">
-                    <label for="user-name">Nombre</label>
+                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre" [ngClass]="{'is-invalid': f.nombre.errors && isSend}">
+                    <label for="user-name">Nombre *</label>
+                    <div class="invalid-feedback ">
+                        Nombre tiene que tener una longitud mayor a 2
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-apellidos" placeholder="Apellidos" formControlName="apellidos">
-                    <label for="user-apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="user-apellidos" placeholder="Apellidos" formControlName="apellidos" [ngClass]="{'is-invalid': f.apellidos.errors && isSend}">
+                    <label for="user-apellidos">Apellidos *</label>
+                    <div class="invalid-feedback ">
+                        Apellidos tiene que tener una longitud mayor a 2
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': f.email.errors}">
-                    <label for="user-email">Email</label>
+                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': f.email.errors && isSend}">
+                    <label for="user-email">Email *</label>
+                    <div class="invalid-feedback ">
+                        Email no valido
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-telefono" placeholder="Telefono" formControlName="telefono" [ngClass]="{'is-invalid': f.telefono.errors}">
+                    <input type="text" class="form-control" id="user-telefono" placeholder="Telefono" formControlName="telefono" [ngClass]="{'is-invalid': f.telefono.errors && isSend}">
                     <label for="user-telefono">Telefono</label>
+                    <div class="invalid-feedback ">
+                        Telefono debe ser un número de 9 digitos
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="user-pw" placeholder="Contraseña" formControlName="password">
-                    <label for="user-pw">Contraseña</label>
+                    <input type="password" class="form-control" id="user-pw" placeholder="Contraseña" formControlName="password" [ngClass]="{'is-invalid': f.password.errors && isSend}">
+                    <label for="user-pw">Contraseña *</label>
+                    <div class="invalid-feedback ">
+                        Contraseña tiene que tener una longitud mayor a 9
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-localidad" placeholder="Localidad" formControlName="localidad" [ngClass]="{'is-invalid': f.localidad.errors}">
+                    <input type="text" class="form-control" id="user-localidad" placeholder="Localidad" formControlName="localidad" [ngClass]="{'is-invalid': f.localidad.errors && isSend}">
                     <label for="user-localidad">Localidad</label>
+                    <div class="invalid-feedback ">
+                        Localidad tiene que tener una longitud mayor a 2
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-registro">Registrase</button>
             </form>

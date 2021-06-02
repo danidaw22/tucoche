@@ -221,4 +221,8 @@ export class SearchComponent implements OnInit {
     console.log('entra');
   }
 
+  navigateToCar(id:any){
+    console.log('navega');
+  }
+
 }

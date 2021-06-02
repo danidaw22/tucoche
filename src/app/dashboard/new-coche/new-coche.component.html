@@ -3,36 +3,54 @@
     <h2 *ngIf="!editCoche" class="tittle">Nuevo coche</h2>
     <form [formGroup]="sForm" (ngSubmit)="saveCar()">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="titulo" placeholder="Titulo del anuncio" required formControlName="titulo">
-            <label for="titulo">Titulo</label>
+            <input type="text" class="form-control" id="titulo" placeholder="Titulo del anuncio" required formControlName="titulo" [ngClass]="{'is-invalid': f.titulo.errors && isSend}">
+            <label for="titulo">Titulo *</label>
+            <div class="invalid-feedback ">
+                Titulo tiene que tener una longitud mayor a 2
+            </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="descripcion" placeholder="descripcion" formControlName="descripcion">
-            <label for="description">Descripcion</label>
+            <input type="text" class="form-control" id="marca" placeholder="marca" formControlName="marca" [ngClass]="{'is-invalid': f.marca.errors && isSend}">
+            <label for="marca">Marca *</label>
+            <div class="invalid-feedback ">
+                Marca tiene que tener una longitud mayor a 2
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Modelo" placeholder="Modelo" formControlName="modelo" [ngClass]="{'is-invalid': f.modelo.errors && isSend}">
+            <label for="modelo">Modelo * </label>
+            <div class="invalid-feedback ">
+                Modelo tiene que tener una longitud mayor a 2
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="descripcion" placeholder="descripcion" formControlName="descripcion" [ngClass]="{'is-invalid': f.descripcion.errors && isSend}">
+            <label for="description">Descripcion *</label>
+            <div class="invalid-feedback ">
+                Modelo tener al menos 10 caracteres
+            </div>
         </div>
         <div class="form-floating mb-3">
             <input type="number" class="form-control" id="precio" placeholder="Precio" formControlName="precio">
             <label for="precio">Precio</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="marca" placeholder="marca" formControlName="marca">
-            <label for="marca">Marca</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="Modelo" placeholder="Modelo" formControlName="modelo">
-            <label for="modelo">Modelo</label>
-        </div>
-        <div class="form-floating mb-3">
             <input type="number" class="form-control" id="km" placeholder="km" formControlName="km">
             <label for="km">km</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="location" placeholder="Localización" formControlName="localidad">
+            <input type="text" class="form-control" id="location" placeholder="Localización" formControlName="localidad" [ngClass]="{'is-invalid': f.localidad.errors && isSend}">
             <label for="location">Localización</label>
+            <div class="invalid-feedback ">
+                Localidad tiene que tener una longitud mayor a 2
+            </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="combustible" placeholder="Tipo de combustible" formControlName="combustible">
+            <input type="text" class="form-control" id="combustible" placeholder="Tipo de combustible" formControlName="combustible" [ngClass]="{'is-invalid': f.combustible.errors && isSend}">
             <label for="combustible">Tipo de combustible</label>
+            <div class="invalid-feedback ">
+                Tipo de combustible tiene que tener una longitud mayor a 2
+            </div>
         </div>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="color" placeholder="Color del coche" formControlName="color">
@@ -47,8 +65,11 @@
             <label for="plazas">Número de plazas</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="CambioMarchas" placeholder="Tipo de cambio de marchas" formControlName="cambio">
+            <input type="text" class="form-control" id="CambioMarchas" placeholder="Tipo de cambio de marchas" formControlName="cambio" [ngClass]="{'is-invalid': f.cambio.errors && isSend}">
             <label for="CambioMarchas">Tipo de cambio de marchas</label>
+            <div class="invalid-feedback ">
+                Tipo de marchas tiene que tener una longitud mayor a 2
+            </div>
         </div>
         <div class="form-floating mb-3">
             <input type="number" class="form-control" id="anno" placeholder="Año" formControlName="anno">
