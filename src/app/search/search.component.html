@@ -151,41 +151,47 @@
             <div class="list">
                 <ul>
                     <li *ngFor="let coche of cochesAll | paginate: { itemsPerPage: 10, currentPage: p}">
-                        <a class="link-car" [routerLink]="['/detail/'+ coche._id]">
-                            <div class="row detail-car p-3">
-                                <div *ngIf="coche.photo" class="col-12 col-sm-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
-                                </div>
-                                <div *ngIf="!coche.photo" class="col-12 col-sm-3 img-car" style="background-image: url('../../assets/images/notphoto2.png');">
-                                </div>
-                                <div class="col-12 col-sm-8">
-                                    <div class="box-price">
-                                        <div class="float-end favoritos">
-                                            <fa-icon [icon]="faFav"></fa-icon>
-                                        </div>
-                                        <span class="text-tittle">Precio</span><br>
-                                        <span class="price">{{coche.precio}} €</span>
-
+                        <div class="link-car">
+                            <div class="row">
+                                <div class="col-10 row detail-car p-3" (click)="navigateToCar(coche._id)">
+                                    <div *ngIf="coche.photo" class="col-12 col-sm-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
                                     </div>
-                                    <h2>{{coche.titulo}}</h2>
-                                    <div class="box-details">
-                                        <ul class="nav justify-content-left">
-                                            <li class="nav-item">
-                                                <p class="details">{{coche.localizacion}}</p>
-                                            </li>
-                                            <li class="nav-item">
-                                                <p class="details">{{coche.cambio}}</p>
-                                            </li>
-                                            <li class="nav-item">
-                                                <p class="details">{{coche.anno}}</p>
-                                            </li>
-                                            <li *ngIf="coche.km" class="nav-item">
-                                                <p class="details">{{coche.km}} km</p>
-                                            </li>
-                                        </ul>
+                                    <div *ngIf="!coche.photo" class="col-12 col-sm-3 img-car" style="background-image: url('../../assets/images/notphoto2.png');">
+                                    </div>
+                                    <div class="col-12 col-sm-8">
+                                        <div class="box-price">
+
+                                            <span class="text-tittle">Precio</span><br>
+                                            <span class="price">{{coche.precio}} €</span>
+
+                                        </div>
+                                        <h2>{{coche.titulo}}</h2>
+                                        <div class="box-details">
+                                            <ul class="nav justify-content-left">
+                                                <li class="nav-item">
+                                                    <p class="details">{{coche.localizacion}}</p>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <p class="details">{{coche.cambio}}</p>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <p class="details">{{coche.anno}}</p>
+                                                </li>
+                                                <li *ngIf="coche.km" class="nav-item">
+                                                    <p class="details">{{coche.km}} km</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div (click)="addFav(coche._id)" class="float-end favoritos">
+                                        <fa-icon [icon]="faFav"></fa-icon>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+
+                        </div>
                     </li>
                 </ul>
 

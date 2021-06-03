@@ -20,12 +20,15 @@ export class NewCocheComponent implements OnInit {
   editCoche = false;
   id= "";
   file:any | undefined = null
+  file2:any | undefined = null
   coche : Coche | undefined
   private readonly notifier: NotifierService;
   downloadURL: Observable<string> | undefined;
   fb2: any;
   urlPhoto="";
   isSend=false;
+  galeria:string[]= []
+  isSubmitted = false
 
   constructor(private fb: FormBuilder, private cocheService:CochesService,private router:Router, private active:ActivatedRoute,notifierService: NotifierService,private storage:AngularFireStorage) {
     this.sForm = this.fb.group({
@@ -68,7 +71,10 @@ export class NewCocheComponent implements OnInit {
 
     this.isSend = true
 
+    this.isSubmitted = false
+
     if(this.sForm.invalid){
+      this.isSubmitted = true
       console.log("error, el formulario esta mal")
       return
     }
@@ -87,7 +93,8 @@ export class NewCocheComponent implements OnInit {
       cambio:this.sForm.controls.cambio.value,
       plazas:this.sForm.controls.nplazas.value,
       anno:this.sForm.controls.anno.value,
-      photo:this.coche?.photo
+      photo:this.coche?.photo,
+      galeria:this.galeria
     }
 
     if(this.editCoche){
@@ -102,6 +109,7 @@ export class NewCocheComponent implements OnInit {
 
           },
           error => {
+            this.isSubmitted = true
             this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
             console.log(error)
           }
@@ -120,6 +128,8 @@ export class NewCocheComponent implements OnInit {
           this.router.navigate(['/panel/all'])
         },
         error => {
+          this.isSubmitted = true
+          this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
           console.log(error)
         }
       )
@@ -133,7 +143,7 @@ export class NewCocheComponent implements OnInit {
   loadData(id:any){
     this.cocheService.getcoche(id).subscribe(
       (data: Coche) => {
-        console.log('entra2')
+        console.log('entra2', data)
         this.coche = data;
         this.sForm.patchValue({
           titulo:this.coche.titulo,
@@ -162,11 +172,49 @@ export class NewCocheComponent implements OnInit {
     this.file = event.target.files[0];
   }
 
+  onFileSelected2(event: any) {
+    this.isSubmitted = true
+    this.file2 = event.target.files;
+
+    //console.log(this.file2, this.file2.length)
+
+
+
+    for (const file of this.file2) {
+
+
+    let num = Math.random() * (50000 - 1) + 1;
+    var n = Date.now();
+    let filePath = `RoomsImages/${n}`+this.file2.name+num;
+    let fileRef = this.storage.ref(filePath);
+      //console.log(file);
+
+     let task = this.storage.upload(filePath,file);
+      task
+          .snapshotChanges()
+          .pipe(
+            finalize(async()=>{
+              this.downloadURL = await fileRef.getDownloadURL();
+              this.downloadURL.subscribe(url => {
+                if (url) {
+                  this.galeria.push(url)
+                }
+              })
+            })
+          )
+          .subscribe(url => {
+          });
+    }
+
+    this.isSubmitted = false
+
+  }
+
   subirImagen(carData:any){
     var n = Date.now();
-  const filePath = `RoomsImages/${n}`;
-  const fileRef = this.storage.ref(filePath);
-  const task = this.storage.upload(`RoomsImages/${n}`,this.file);
+    const filePath = `RoomsImages/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`RoomsImages/${n}`,this.file);
  task
     .snapshotChanges()
     .pipe(
@@ -188,6 +236,7 @@ export class NewCocheComponent implements OnInit {
                   this.notifier.notify('success', 'Coche actualizado correctamente');
                 },
                 error => {
+                  this.isSubmitted = true
                   this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
                   console.log(error)
                 }
@@ -200,6 +249,7 @@ export class NewCocheComponent implements OnInit {
                   this.router.navigate(['/panel/all'])
                 },
                 error => {
+                  this.isSubmitted = true
                   this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
                   console.log(error)
                 }

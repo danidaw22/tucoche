@@ -1,8 +1,34 @@
 <div class="container box-detail" *ngFor="let c of coche">
     <div class="row">
-        <div *ngIf="c.photo" class="col-12 col-sm-9 col-lg-9 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
+        <!-- <div *ngIf="c.photo" class="col-12 col-sm-9 col-lg-9 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
         </div>
         <div *ngIf="!c.photo" class="col-12 col-sm-9 col-lg-9 img-car" style="background-image: url('../../assets/images/notphoto.png');">
+        </div>-->
+        <div class="col-12 col-sm-9 col-lg-9">
+            <div *ngIf="c.galeria" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{{c.photo}}" class="img-car" alt="portada">
+                    </div>
+                    <div class="carousel-item " data-bs-interval="10000" *ngFor="let img of c.galeria">
+                        <img src="{{img}}" class="img-car" alt="coche-galeria">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+            <div *ngIf="!c.galeria">
+                <div *ngIf="c.photo" class="img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
+                </div>
+                <div *ngIf="!c.photo" class="img-car" style="background-image: url('../../assets/images/notphoto.png');">
+                </div>
+            </div>
         </div>
         <div class="col-12 col-sm-3 contacto">
             <h2>Contacta con el vendedor</h2>

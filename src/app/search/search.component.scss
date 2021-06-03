@@ -25,14 +25,14 @@
 }
 
 .link-car {
-    text-decoration: none;
-    color: #000;
+    border-radius: 10px;
+    background-color: #fff;
+    &:hover {
+        box-shadow: 0 0 20px 5px #0084ff47;
+    }
     .detail-car {
         background-color: white;
         border-radius: 10px;
-        &:hover {
-            box-shadow: 0 0 20px 5px #0084ff47;
-        }
         .img-car {
             background-position: center center;
             background-repeat: no-repeat;

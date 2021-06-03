@@ -142,7 +142,7 @@ export class SearchComponent implements OnInit {
 
     this.cocheService.coches(params).subscribe(
       (data) => {
-        console.log(data)
+       // console.log(data)
         this.cochesAll = data.docs;
         this.limit = data.limit
         this.nextPage = data.nextPage
@@ -217,12 +217,12 @@ export class SearchComponent implements OnInit {
 
   }
 
-  addFav(){
-    console.log('entra');
+  addFav(id:any){
+
   }
 
   navigateToCar(id:any){
-    console.log('navega');
+    this.router.navigate(['/detail/'+id])
   }
 
 }
