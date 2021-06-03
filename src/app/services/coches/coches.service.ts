@@ -3,16 +3,25 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CochesService {
 
-  constructor(private httpCLient: HttpClient) { }
+  constructor(private httpCLient: HttpClient, public auth: AuthService) {}
 
   coches(params:any):Observable<any>{
-    return this.httpCLient.get(`${environment.apiUrl}/coches`, { params: params} )
+
+    let url = "listaCoches"
+
+    if(this.auth.isAuthenticated()){
+      url = "coches"
+    }
+
+    return this.httpCLient.get(`${environment.apiUrl}/${url}`, { params: params} )
       .pipe(
         catchError(error => {
           return error;

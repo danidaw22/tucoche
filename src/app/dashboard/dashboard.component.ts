@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faCarAlt, faPersonBooth, faPlusCircle, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faCarAlt, faHeart, faPersonBooth, faPlusCircle, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   faCar = faCarAlt;
 
   faAnuncio = faPlusCircle
+
+  faFavoritos = faHeart
 
   ngOnInit() {
 

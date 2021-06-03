@@ -1,3 +1,4 @@
+import { ListFavoritosComponent } from './dashboard/list-favoritos/list-favoritos.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { NewCocheComponent } from './dashboard/new-coche/new-coche.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
     {path:"all", component: DetailAllComponent},
     {path:"perfil", component:ProfileComponent},
     {path:"coche/detail", component:NewCocheComponent},
-    {path:"coche/detail/:id",component:NewCocheComponent}
+    {path:"coche/detail/:id",component:NewCocheComponent},
+    {path:"favoritos",component:ListFavoritosComponent}
   ]},
   { path:"login", component: LoginComponent},
   { path:"register", component: RegisterComponent},

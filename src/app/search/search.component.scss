@@ -19,6 +19,8 @@
 
 .favoritos {
     font-size: 28px;
+    color: rgb(133, 133, 133);
+    cursor: pointer;
     &:hover {
         color: $azul;
     }
@@ -33,6 +35,7 @@
     .detail-car {
         background-color: white;
         border-radius: 10px;
+        cursor: pointer;
         .img-car {
             background-position: center center;
             background-repeat: no-repeat;
@@ -79,4 +82,8 @@
     text-align: center;
     margin-top: 10px;
     padding: 13px;
+}
+
+.isfavorito {
+    color: $azul;
 }

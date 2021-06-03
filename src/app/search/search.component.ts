@@ -1,11 +1,13 @@
+import { FavoritosService } from './../services/favoritos/favoritos.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AppPage } from './../../../e2e/src/app.po';
 import { Component, OnInit } from '@angular/core';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { CochesService } from '../../app/services/coches/coches.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coche } from '../models/coche.models';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { Coche } from '../models/coche.models';
 })
 export class SearchComponent implements OnInit {
 
-  cochesAll: Array<Coche> = []
+  cochesAll: Array<any> = []
   filter:any=""
   marca:any=""
   modelo:any=""
@@ -37,9 +39,11 @@ export class SearchComponent implements OnInit {
   totalPages=1
   p:number = this.page;
   sForm: FormGroup
+  faFav = faHeart
+  private readonly notifier: NotifierService;
 
 
-  constructor(private cocheService: CochesService, private activateRoute: ActivatedRoute, private fb: FormBuilder, private router: Router) {
+  constructor(private cocheService: CochesService, private activateRoute: ActivatedRoute, private fb: FormBuilder, private router: Router, private favoritoService: FavoritosService,notifierService: NotifierService) {
     this.sForm = this.fb.group({
       filter:[''],
       marca:[''],
@@ -55,6 +59,8 @@ export class SearchComponent implements OnInit {
       cambio:[''],
       color:[],
     })
+
+    this.notifier = notifierService;
    }
 
   ngOnInit() {
@@ -100,7 +106,6 @@ export class SearchComponent implements OnInit {
     return this.sForm.controls
   }
 
-  faFav = faHeart
 
   minValue: number = 0;
   maxValue: number = 120000;
@@ -142,7 +147,7 @@ export class SearchComponent implements OnInit {
 
     this.cocheService.coches(params).subscribe(
       (data) => {
-       // console.log(data)
+        console.log(data)
         this.cochesAll = data.docs;
         this.limit = data.limit
         this.nextPage = data.nextPage
@@ -218,6 +223,56 @@ export class SearchComponent implements OnInit {
   }
 
   addFav(id:any){
+
+    if(localStorage.getItem('token')){
+      let params = {
+        coche_id : id
+      }
+      this.favoritoService.addFav(params).subscribe(
+        (data) => {
+          this.notifier.notify('success', 'Coche añadido a favoritos');
+          console.log(data)
+          for(let coche of this.cochesAll){
+            if(coche._id == id){
+              coche.favorito = true
+            }
+          }
+          console.log(this.cochesAll)
+        },
+        error => {
+          console.log('Error', error)
+        }
+      );
+    }else{
+      this.notifier.notify('error', 'Necesitas logearte para añadir a favoritos');
+    }
+
+
+  }
+
+  deleteFav(id:any){
+
+    if(localStorage.getItem('token')){
+      this.favoritoService.deleteFav(id).subscribe(
+        (data) => {
+          this.notifier.notify('success', 'Coche eliminado de favoritos');
+          console.log(data)
+          for(let coche of this.cochesAll){
+            if(coche._id == id){
+              coche.favorito = false
+            }
+          }
+          console.log(this.cochesAll)
+        },
+        error => {
+          console.log('Error', error)
+        }
+      );
+    }else{
+      this.notifier.notify('error', 'Necesitas logearte para eliminar de favoritos');
+    }
+
+
 
   }
 

@@ -1,3 +1,4 @@
+import { ListFavoritosComponent } from './dashboard/list-favoritos/list-favoritos.component';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
 import { NewCocheComponent } from './dashboard/new-coche/new-coche.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
@@ -48,7 +49,8 @@ import { ContactoComponent } from './contacto/contacto.component';
       DetailAllComponent,
       ProfileComponent,
       NewCocheComponent,
-      ContactoComponent
+      ContactoComponent,
+      ListFavoritosComponent
    ],
   imports: [
     BrowserModule,

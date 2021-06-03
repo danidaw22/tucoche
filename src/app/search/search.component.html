@@ -185,7 +185,10 @@
                                     </div>
                                 </div>
                                 <div class="col-2">
-                                    <div (click)="addFav(coche._id)" class="float-end favoritos">
+                                    <div *ngIf="coche.favorito" (click)="deleteFav(coche._id)" class="float-end favoritos isfavorito">
+                                        <fa-icon [icon]="faFav"></fa-icon>
+                                    </div>
+                                    <div *ngIf="!coche.favorito" (click)="addFav(coche._id)" class="float-end favoritos">
                                         <fa-icon [icon]="faFav"></fa-icon>
                                     </div>
                                 </div>
