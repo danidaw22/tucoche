@@ -16,20 +16,32 @@
             <h2>Contacta con Nosotros</h2>
             <form id="contacto" [formGroup]="sForm" (ngSubmit)="contacto()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre">
-                    <label for="user-name">Nombre</label>
+                    <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="nombre" [ngClass]="{'is-invalid': f.nombre.errors && isSend}">
+                    <label for="user-name">Nombre * </label>
+                    <div class="invalid-feedback ">
+                        Nombre debe tener dos letras
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email">
-                    <label for="user-email">Tu email</label>
+                    <input type="text" class="form-control" id="user-email" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': f.email.errors && isSend}">
+                    <label for="user-email">Tu email * </label>
+                    <div class="invalid-feedback ">
+                        Email Invalido
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="user-phone" placeholder="Telefono" formControlName="telefono">
+                    <input type="text" class="form-control" id="user-phone" placeholder="Telefono" formControlName="telefono" [ngClass]="{'is-invalid': f.telefono.errors && isSend}">
                     <label for="user-name">Tu telefono</label>
+                    <div class="invalid-feedback ">
+                        Debe ser un telefono de 9 cifras
+                    </div>
                 </div>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Estoy interesado/a en este vehiculo" id="comentarios" style="height: 100px; margin-bottom: 15px;" formControlName="description"></textarea>
+                    <textarea class="form-control" placeholder="Estoy interesado/a en este vehiculo" id="comentarios" style="height: 100px; margin-bottom: 15px;" formControlName="description" [ngClass]="{'is-invalid': f.description.errors && isSend}"></textarea>
                     <label for="comentarios">Comentario</label>
+                    <div class="invalid-feedback ">
+                        Tiene contener minimo 10 caracteres
+                    </div>
                 </div>
                 <button type="submit" [disabled]="isSubmitted" class="btn btn-contacto">Contactar</button>
             </form>

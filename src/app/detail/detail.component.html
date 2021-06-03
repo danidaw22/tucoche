@@ -61,7 +61,7 @@
                         Tiene contener minimo 10 caracteres
                     </div>
                 </div>
-                <button type="submit" class="btn btn-contacto"><fa-icon [icon]='faContacto'></fa-icon>Contactar</button>
+                <button type="submit" [disabled]="isSubmitted" class="btn btn-contacto"><fa-icon [icon]='faContacto'></fa-icon>Contactar</button>
             </form>
         </div>
         <div class="col-12 box-details mt-3">
