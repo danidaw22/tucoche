@@ -12,11 +12,11 @@
             <ng-container *ngFor="let coche of coches; let i = index">
                 <tr>
                     <td scope="row">{{i+1}}</td>
-                    <td>
+                    <td (click)="navigateToCar(coche._id)">
                         <img *ngIf="coche.photo" class="img-tabla" src="{{coche.photo}}" atl="portada-anuncio">
                         <img *ngIf="!coche.photo" class="img-tabla" src="../../../assets/images/notphoto2.png" atl="portada-anuncio">
                     </td>
-                    <td>{{coche.titulo}}</td>
+                    <td (click)="navigateToCar(coche._id)">{{coche.titulo}}</td>
                     <td>
                         <a [routerLink]="['/detail/'+ coche._id]"><button type="button" class="btn btn-primary btn-table"><fa-icon [icon]="faShow"></fa-icon></button></a>
                         <a [routerLink]="['/panel/coche/detail/'+ coche._id]"><button type="button" class="btn btn-success btn-table "><fa-icon [icon]="faEdit"></fa-icon></button></a>

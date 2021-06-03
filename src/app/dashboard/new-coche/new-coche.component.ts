@@ -32,18 +32,18 @@ export class NewCocheComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private cocheService:CochesService,private router:Router, private active:ActivatedRoute,notifierService: NotifierService,private storage:AngularFireStorage) {
     this.sForm = this.fb.group({
-      titulo:['',Validators.required,Validators.minLength(2)],
-      descripcion:['',Validators.required,Validators.minLength(10)],
+      titulo:[null,[Validators.required,Validators.minLength(2)]],
+      descripcion:[null,[Validators.required,Validators.minLength(10)]],
       precio:[],
-      marca:['',Validators.required,Validators.minLength(2)],
-      modelo:['',Validators.required,Validators.minLength(2)],
+      marca:[null,[Validators.required,Validators.minLength(2)]],
+      modelo:[null,[Validators.required,Validators.minLength(2)]],
       km:[],
-      localidad:['',Validators.minLength(2)],
-      combustible:['',Validators.minLength(2)],
+      localidad:[null,[Validators.minLength(2)]],
+      combustible:[null,[Validators.minLength(2)]],
       color:[],
       npuertas:[],
       nplazas:[],
-      cambio:['',Validators.minLength(2)],
+      cambio:[null,[Validators.minLength(2)]],
       anno:[]
     })
 

@@ -3,6 +3,7 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Coche } from 'src/app/models/coche.models';
 import { CochesService } from 'src/app/services/coches/coches.service';
 import { NotifierService } from 'angular-notifier';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-all',
@@ -26,7 +27,7 @@ export class DetailAllComponent implements OnInit {
   private readonly notifier: NotifierService;
 
 
-  constructor(private cochesService : CochesService, notifierService: NotifierService) {
+  constructor(private cochesService : CochesService, notifierService: NotifierService,private router:Router) {
     this.notifier = notifierService;
    }
 
@@ -61,6 +62,10 @@ export class DetailAllComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+
+  navigateToCar(id:any){
+    this.router.navigate(['/detail/'+id])
   }
 
 }

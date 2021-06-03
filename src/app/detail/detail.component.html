@@ -6,11 +6,11 @@
         </div>-->
         <div class="col-12 col-sm-9 col-lg-9">
             <div *ngIf="c.galeria" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner ">
                     <div class="carousel-item active" data-bs-interval="10000">
                         <img src="{{c.photo}}" class="img-car" alt="portada">
                     </div>
-                    <div class="carousel-item " data-bs-interval="10000" *ngFor="let img of c.galeria">
+                    <div class="carousel-item" data-bs-interval="10000" *ngFor="let img of c.galeria">
                         <img src="{{img}}" class="img-car" alt="coche-galeria">
                     </div>
                 </div>

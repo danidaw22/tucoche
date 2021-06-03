@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
 
   isSend=false;
 
+  isSubmitted = false
+
   constructor(private router: Router,private fb: FormBuilder, private userService:UsuariosService) {
     this.sForm = this.fb.group({
       nombre:['',Validators.required, Validators.minLength(2)],
@@ -34,9 +36,12 @@ export class RegisterComponent implements OnInit {
 
   saveUsuario(){
 
+    this.isSubmitted = true
+
     this.isSend=true;
 
     if(this.sForm.invalid){
+      this.isSubmitted = false
       console.log("error, el formulario esta mal")
       return
     }
@@ -54,9 +59,11 @@ export class RegisterComponent implements OnInit {
     this.userService.signup(email,password,nombre,apellidos,localidad,telefono,rol).subscribe(
       (data) => {
         console.log(data)
+        this.isSubmitted = false
         this.router.navigate(['/login'])
       },
       error =>{
+        this.isSubmitted = false
         console.log('Error', error)
       }
     )

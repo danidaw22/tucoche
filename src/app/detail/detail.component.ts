@@ -37,6 +37,8 @@ export class DetailComponent implements OnInit {
 
   private readonly notifier: NotifierService;
 
+  galeria = false;
+
   ngOnInit() {
 
     this.active.params.subscribe( params => {
