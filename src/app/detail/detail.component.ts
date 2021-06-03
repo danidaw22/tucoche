@@ -26,7 +26,7 @@ export class DetailComponent implements OnInit {
     this.notifier = notifierService;
    }
 
-  coche:any= []
+  coche:any
 
   faContacto = faPhoneAlt
 
@@ -37,8 +37,6 @@ export class DetailComponent implements OnInit {
   isSend = false;
 
   private readonly notifier: NotifierService;
-
-  galeria = false;
 
   isSubmitted = false;
 
@@ -60,8 +58,9 @@ export class DetailComponent implements OnInit {
   loadData(id:string){
     this.cochesService.getcoche(id).subscribe(
       (data) => {
-        this.coche.push(data)
-        console.log(this.coche)
+        this.coche = data
+        //this.coche.push(data)
+       console.log(this.coche)
       },
       error => {
         console.log('Error', error)
@@ -84,8 +83,8 @@ export class DetailComponent implements OnInit {
       email: this.sForm.controls.email.value,
       telefono: this.sForm.controls.telefono.value,
       comentario: this.sForm.controls.description.value,
-      titulo:this.coche[0].titulo,
-      emailCoche:this.coche[0].usuario.email
+      titulo:this.coche.titulo,
+      emailCoche:this.coche.usuario.email
     }
 
     this.mailsService.sendContacto(params).subscribe(

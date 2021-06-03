@@ -154,9 +154,9 @@
                         <div class="link-car">
                             <div class="row">
                                 <div class="col-10 row detail-car p-3" (click)="navigateToCar(coche._id)">
-                                    <div *ngIf="coche.photo" class="col-12 col-sm-3 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
+                                    <div *ngIf="coche.photo" class="col-12 col-sm-4 img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
                                     </div>
-                                    <div *ngIf="!coche.photo" class="col-12 col-sm-3 img-car" style="background-image: url('../../assets/images/notphoto2.png');">
+                                    <div *ngIf="!coche.photo" class="col-12 col-sm-4 img-car" style="background-image: url('../../assets/images/notphoto2.png');">
                                     </div>
                                     <div class="col-12 col-sm-8">
                                         <div class="box-price">
@@ -166,6 +166,7 @@
 
                                         </div>
                                         <h2>{{coche.titulo}}</h2>
+                                        <p class="marcaCoche">{{coche.marca}}</p>
                                         <div class="box-details">
                                             <ul class="nav justify-content-left">
                                                 <li class="nav-item">

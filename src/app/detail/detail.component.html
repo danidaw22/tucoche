@@ -1,16 +1,16 @@
-<div class="container box-detail" *ngFor="let c of coche">
+<div class="container box-detail">
     <div class="row">
         <!-- <div *ngIf="c.photo" class="col-12 col-sm-9 col-lg-9 img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
         </div>
         <div *ngIf="!c.photo" class="col-12 col-sm-9 col-lg-9 img-car" style="background-image: url('../../assets/images/notphoto.png');">
         </div>-->
         <div class="col-12 col-sm-9 col-lg-9">
-            <div *ngIf="c.galeria" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div *ngIf="coche.galeria" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner ">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="{{c.photo}}" class="img-car" alt="portada">
+                        <img src="{{coche.photo}}" class="img-car" alt="portada">
                     </div>
-                    <div class="carousel-item" data-bs-interval="10000" *ngFor="let img of c.galeria">
+                    <div class="carousel-item" data-bs-interval="10000" *ngFor="let img of coche.galeria">
                         <img src="{{img}}" class="img-car" alt="coche-galeria">
                     </div>
                 </div>
@@ -23,10 +23,10 @@
               <span class="visually-hidden">Next</span>
             </button>
             </div>
-            <div *ngIf="!c.galeria">
-                <div *ngIf="c.photo" class="img-car" [ngStyle]="{'background-image': 'url('+ c.photo + ')' }">
+            <div *ngIf="!coche.galeria">
+                <div *ngIf="coche.photo" class="img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
                 </div>
-                <div *ngIf="!c.photo" class="img-car" style="background-image: url('../../assets/images/notphoto.png');">
+                <div *ngIf="!coche.photo" class="img-car" style="background-image: url('../../assets/images/notphoto.png');">
                 </div>
             </div>
         </div>
@@ -67,48 +67,48 @@
         <div class="col-12 box-details mt-3">
             <div class="row">
                 <div class="col-12">
-                    <h2>{{c.titulo}}</h2>
+                    <h2>{{coche.titulo}}</h2>
                 </div>
                 <div class="row ficha">
                     <div class="col-4 datos-coche">
                         <p class="text-t">Marca</p>
-                        <p *ngIf="c.marca" class="text-d">{{c.marca}}</p>
-                        <p *ngIf="!c.marca" class="text-d">---</p>
+                        <p *ngIf="coche.marca" class="text-d">{{coche.marca}}</p>
+                        <p *ngIf="!coche.marca" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">Modelo</p>
-                        <p *ngIf="c.modelo" class="text-d">{{c.modelo}}</p>
-                        <p *ngIf="!c.modelo" class="text-d">---</p>
+                        <p *ngIf="coche.modelo" class="text-d">{{coche.modelo}}</p>
+                        <p *ngIf="!coche.modelo" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">Tipo de marchas</p>
-                        <p *ngIf="c.cambio" class="text-d">{{c.cambio}}</p>
-                        <p *ngIf="!c.cambio" class="text-d">---</p>
+                        <p *ngIf="coche.cambio" class="text-d">{{coche.cambio}}</p>
+                        <p *ngIf="!coche.cambio" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">km</p>
-                        <p *ngIf="c.km" class="text-d">{{c.km}}</p>
-                        <p *ngIf="!c.km" class="text-d">---</p>
+                        <p *ngIf="coche.km" class="text-d">{{coche.km}}</p>
+                        <p *ngIf="!coche.km" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">Año</p>
-                        <p *ngIf="c.anno" class="text-d">{{c.anno}}</p>
-                        <p *ngIf="!c.anno" class="text-d">---</p>
+                        <p *ngIf="coche.anno" class="text-d">{{coche.anno}}</p>
+                        <p *ngIf="!coche.anno" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">Precio</p>
-                        <p *ngIf="c.precio" class="text-d">{{c.precio}} €</p>
-                        <p *ngIf="!c.precio" class="text-d">---</p>
+                        <p *ngIf="coche.precio" class="text-d">{{coche.precio}} €</p>
+                        <p *ngIf="!coche.precio" class="text-d">---</p>
                     </div>
                     <div class="col-4 datos-coche">
                         <p class="text-t">Localidad</p>
-                        <p *ngIf="c.localizacion" class="text-d">{{c.localizacion}}</p>
-                        <p *ngIf="!c.localizacion" class="text-d">---</p>
+                        <p *ngIf="coche.localizacion" class="text-d">{{coche.localizacion}}</p>
+                        <p *ngIf="!coche.localizacion" class="text-d">---</p>
                     </div>
                     <div class="col-12 datos-coche">
                         <p class="text-t">Descripcion</p>
-                        <p *ngIf="c.descripcion" class="text-d">{{c.descripcion}}</p>
-                        <p *ngIf="!c.descripcion" class="text-d">---</p>
+                        <p *ngIf="coche.descripcion" class="text-d">{{coche.descripcion}}</p>
+                        <p *ngIf="!coche.descripcion" class="text-d">---</p>
                     </div>
                 </div>
             </div>

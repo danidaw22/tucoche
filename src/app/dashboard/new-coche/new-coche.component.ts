@@ -236,7 +236,7 @@ export class NewCocheComponent implements OnInit {
                   this.notifier.notify('success', 'Coche actualizado correctamente');
                 },
                 error => {
-                  this.isSubmitted = true
+                  this.isSubmitted = false
                   this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
                   console.log(error)
                 }
@@ -249,7 +249,7 @@ export class NewCocheComponent implements OnInit {
                   this.router.navigate(['/panel/all'])
                 },
                 error => {
-                  this.isSubmitted = true
+                  this.isSubmitted = false
                   this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
                   console.log(error)
                 }
