@@ -147,7 +147,6 @@ export class SearchComponent implements OnInit {
 
     this.cocheService.coches(params).subscribe(
       (data) => {
-        console.log(data)
         this.cochesAll = data.docs;
         this.limit = data.limit
         this.nextPage = data.nextPage
@@ -231,13 +230,12 @@ export class SearchComponent implements OnInit {
       this.favoritoService.addFav(params).subscribe(
         (data) => {
           this.notifier.notify('success', 'Coche añadido a favoritos');
-          console.log(data)
           for(let coche of this.cochesAll){
             if(coche._id == id){
               coche.favorito = true
             }
           }
-          console.log(this.cochesAll)
+
         },
         error => {
           console.log('Error', error)
@@ -256,13 +254,11 @@ export class SearchComponent implements OnInit {
       this.favoritoService.deleteFav(id).subscribe(
         (data) => {
           this.notifier.notify('success', 'Coche eliminado de favoritos');
-          console.log(data)
           for(let coche of this.cochesAll){
             if(coche._id == id){
               coche.favorito = false
             }
           }
-          console.log(this.cochesAll)
         },
         error => {
           console.log('Error', error)
