@@ -11,7 +11,7 @@
             <form [formGroup]="sForm" (ngSubmit)="login()">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="user-name" placeholder="Nombre" formControlName="email" [ngClass]="{'is-invalid': f.email.errors}">
-                    <label for="user-name">Nombre</label>
+                    <label for="user-name">Email</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="user-pw" placeholder="Contraseña" formControlName="password" [ngClass]="{'is-invalid': f.password.errors}">
