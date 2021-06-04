@@ -40,6 +40,8 @@ export class DetailComponent implements OnInit {
 
   isSubmitted = false;
 
+  fotos = false
+
   ngOnInit() {
 
     this.active.params.subscribe( params => {
@@ -60,7 +62,9 @@ export class DetailComponent implements OnInit {
       (data) => {
         this.coche = data
         //this.coche.push(data)
-       console.log(this.coche)
+        if(this.coche.galeria.length > 0){
+          this.fotos = true
+        }
       },
       error => {
         console.log('Error', error)
@@ -84,7 +88,8 @@ export class DetailComponent implements OnInit {
       telefono: this.sForm.controls.telefono.value,
       comentario: this.sForm.controls.description.value,
       titulo:this.coche.titulo,
-      emailCoche:this.coche.usuario.email
+      emailCoche:this.coche.usuario.email,
+      nombreAnunciante:this.coche.usuario.nombre
     }
 
     this.mailsService.sendContacto(params).subscribe(
