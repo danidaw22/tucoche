@@ -8,10 +8,10 @@
             <div *ngIf="fotos" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner ">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img *ngIf="coche.photo" src="{{coche.photo}}" class="img-car" alt="portada">
-                        <img *ngIf="!coche.photo" src="../../assets/images/notphoto.png" class="img-car" alt="portada">
+                        <img *ngIf="coche?.photo" src="{{coche?.photo}}" class="img-car" alt="portada">
+                        <img *ngIf="!coche?.photo" src="../../assets/images/notphoto.png" class="img-car" alt="portada">
                     </div>
-                    <div class="carousel-item" data-bs-interval="10000" *ngFor="let img of coche.galeria">
+                    <div class="carousel-item" data-bs-interval="10000" *ngFor="let img of coche?.galeria">
                         <img src="{{img}}" class="img-car" alt="coche-galeria">
                     </div>
                 </div>
@@ -25,9 +25,9 @@
             </button>
             </div>
             <div *ngIf="!fotos">
-                <div *ngIf="coche.photo" class="img-car" [ngStyle]="{'background-image': 'url('+ coche.photo + ')' }">
+                <div *ngIf="coche?.photo" class="img-car" [ngStyle]="{'background-image': 'url('+ coche?.photo + ')' }">
                 </div>
-                <div *ngIf="!coche.photo" class="img-car" style="background-image: url('../../assets/images/notphoto.png');">
+                <div *ngIf="!coche?.photo" class="img-car" style="background-image: url('../../assets/images/notphoto.png');">
                 </div>
             </div>
         </div>
@@ -65,10 +65,10 @@
                 <button type="submit" [disabled]="isSubmitted" class="btn btn-contacto"><fa-icon [icon]='faContacto'></fa-icon>Contactar</button>
             </form>
         </div>
-        <div class="col-12 box-details mt-3">
+        <div *ngIf="coche?.titulo" class="col-12 box-details mt-3">
             <div class="row">
                 <div class="col-12">
-                    <h2>{{coche.titulo}}</h2>
+                    <h2>{{coche?.titulo}}</h2>
                 </div>
                 <div class="row ficha">
                     <div class="col-4 datos-coche">

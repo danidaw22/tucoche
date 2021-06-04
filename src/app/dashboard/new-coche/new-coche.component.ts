@@ -34,17 +34,17 @@ export class NewCocheComponent implements OnInit {
     this.sForm = this.fb.group({
       titulo:[null,[Validators.required,Validators.minLength(2)]],
       descripcion:[null,[Validators.required,Validators.minLength(10)]],
-      precio:[],
-      marca:[null,[Validators.required,Validators.minLength(2)]],
-      modelo:[null,[Validators.required,Validators.minLength(2)]],
-      km:[],
-      localidad:[null,[Validators.minLength(2)]],
-      combustible:[null,[Validators.minLength(2)]],
-      color:[],
-      npuertas:[],
-      nplazas:[],
-      cambio:[null,[Validators.minLength(2)]],
-      anno:[]
+      precio:[''],
+      marca:['',[Validators.required,Validators.minLength(2)]],
+      modelo:['',[Validators.required,Validators.minLength(2)]],
+      km:[''],
+      localidad:['',[Validators.minLength(2)]],
+      combustible:['',[Validators.minLength(2)]],
+      color:[''],
+      npuertas:[''],
+      nplazas:[''],
+      cambio:['',[Validators.minLength(2)]],
+      anno:['']
     })
 
     this.notifier = notifierService;
@@ -71,31 +71,50 @@ export class NewCocheComponent implements OnInit {
 
     this.isSend = true
 
-    this.isSubmitted = false
+    this.isSubmitted = true
 
     if(this.sForm.invalid){
-      this.isSubmitted = true
+      this.isSubmitted = false
       console.log("error, el formulario esta mal")
       return
     }
 
-    let carData = {
+    let carData:any = {
       titulo:this.sForm.controls.titulo.value,
       descripcion:this.sForm.controls.descripcion.value,
       marca:this.sForm.controls.marca.value,
       modelo:this.sForm.controls.modelo.value,
-      km:this.sForm.controls.km.value,
-      precio:this.sForm.controls.precio.value,
-      localizacion:this.sForm.controls.localidad.value,
-      combustible:this.sForm.controls.combustible.value,
-      color:this.sForm.controls.color.value,
-      puertas:this.sForm.controls.npuertas.value,
-      cambio:this.sForm.controls.cambio.value,
-      plazas:this.sForm.controls.nplazas.value,
-      anno:this.sForm.controls.anno.value,
       photo:this.coche?.photo,
       galeria:this.galeria
     }
+
+    if(this.sForm.controls.km.value != ''){
+      carData.km = this.sForm.controls.km.value
+    }
+    if(this.sForm.controls.precio.value != ''){
+      carData.precio = this.sForm.controls.precio.value
+    }
+    if(this.sForm.controls.localidad.value != ''){
+      carData.localizacion = this.sForm.controls.localidad.value
+    }
+    if(this.sForm.controls.combustible.value != ''){
+      carData.combustible = this.sForm.controls.combustible.value
+    }
+    if(this.sForm.controls.npuertas.value != ''){
+      carData.puertas = this.sForm.controls.npuertas.value
+    }
+    if(this.sForm.controls.cambio.value != ''){
+      carData.cambio = this.sForm.controls.cambio.value
+    }
+    if(this.sForm.controls.nplazas.value != ''){
+      carData.plazas = this.sForm.controls.nplazas.value
+    }
+    if(this.sForm.controls.anno.value != ''){
+      carData.anno = this.sForm.controls.anno.value
+    }
+
+
+
 
     if(this.editCoche){
       if(this.file != null){
@@ -109,7 +128,7 @@ export class NewCocheComponent implements OnInit {
 
           },
           error => {
-            this.isSubmitted = true
+            this.isSubmitted = false
             this.notifier.notify('error', 'Vaya parece que ha ocurrido un error');
             console.log(error)
           }
